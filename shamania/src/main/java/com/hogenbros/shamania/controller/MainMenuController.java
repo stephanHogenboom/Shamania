@@ -13,7 +13,6 @@ public class MainMenuController {
 
     private Logger LOGGER = LoggerFactory.getLogger(MainMenuController.class);
 
-
     @RequestMapping("/main")
     public String getToDoPage(Model model) {
         LOGGER.info("returning main menu brah");
