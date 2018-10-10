@@ -6,6 +6,9 @@ import com.hogenbros.shamania.model.PersonBuilder;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class GameMechanics {
     BufferedReader br;
@@ -18,27 +21,38 @@ public class GameMechanics {
 
     private void onStartUp() throws IOException {
         br = new BufferedReader(new InputStreamReader(System.in));
-        printStartText();
+        printStartTextAndCreateProtagonist();
 
     }
 
-    private void printStartText() {
-        System.out.println("Hello there stranger, welcome to Shamania!");
-        System.out.println("You seem to have a lot of affinity with spiritual realm!");
-        System.out.println("What is your name?");
+    private void printStartTextAndCreateProtagonist() {
+        printSlowly("Hello there stranger, welcome to Shamania!");
+        printSlowly("You seem to have a lot of affinity with spiritual realm!");
+        printSlowly("What is your name?");
         try {
             String name = br.readLine();
             protagonist = PersonBuilder
                     .create()
                     .withName(name)
                     .build();
-            System.out.printf("Welcome %s! \n", protagonist.getName());
+            printSlowly(String.format("Welcome %s! \n", protagonist.getName()));
         } catch (Exception e) {
             System.out.println("Exception happend with cause:" + e.getCause());
             e.printStackTrace();
         }
     }
 
+    private void printSlowly(String text) {
+        for (int i = 0; i < text.length(); ++i) {
+            System.out.print(text.charAt(i));
+            try {
+                Thread.sleep( 40);
+            } catch (InterruptedException e) {
+                System.err.println("Error ! " + e.getMessage());
+            }
+        }
+        System.out.println();
+    }
 
 
 }
