@@ -11,7 +11,6 @@ public class MainMenuController {
 
     private Logger LOGGER = LoggerFactory.getLogger(MainMenuController.class);
 
-
     @RequestMapping("/main")
     public String toMainMenu(Model model) {
         LOGGER.info("returning main menu brah");
