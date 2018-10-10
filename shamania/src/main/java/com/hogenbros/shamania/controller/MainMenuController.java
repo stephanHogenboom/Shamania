@@ -15,8 +15,14 @@ public class MainMenuController {
 
 
     @RequestMapping("/main")
-    public String getToDoPage(Model model) {
+    public String toMainMenu(Model model) {
         LOGGER.info("returning main menu brah");
         return "main_menu";
+    }
+
+    @RequestMapping("/start")
+    public String toGamePage(Model model) {
+        LOGGER.info("starting the game, brah");
+        return "start";
     }
 }
