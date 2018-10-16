@@ -11,17 +11,66 @@ body {
 }
 
 div#main-panel {
-    min-width: 500px;
-    max-width: 1000px;
-    margin: auto;
-    min-height: 200px;
-    max-height: 400px;
+    width: 100%;
+    height: 100%;
 }
 
 div#centre-panel {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     text-align:center;
+    width: 100%;
+    height: 100%;
+    border: solid 2px black;
 }
 
 #main-panel{
     background-color: blue;
+}
+
+#main-title{
+    margin-top: 0px;
+}
+
+#top-panel{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height:75%;
+    width: 100%;
+    background-color: green;
+    padding: 10px;
+}
+
+#bottom-panel{
+    height: 25%;
+    width: 100%;
+    background-color: yellow;
+}
+
+#player-stats-panel,
+#option-panel,
+#enemy-stats-panel{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 10px;
+    float: left;
+}
+
+#player-stats-panel,
+#enemy-stats-panel{
+    width: 25%;
+}
+
+#option-panel{
+    width: 50%;
+}
+
+.bottom-border-panels{
+    height: 100%;
+    width: 100%;
+    border: solid 2px black;
 }
