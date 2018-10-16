@@ -1,3 +1,19 @@
 $(document).ready(function(){
-    console.log('hoi');
+    $('#start-button').on('click', function(){
+        $.post("/shaman/new/test").done(function(){
+            $.post("/battle/start", {
+                name: "ShackleBoiiii"
+            }).done(function(value){
+                console.dir(value);
+                //$('#centre-panel').html(value);
+            }).fail(function(){
+                alert("error");
+            });
+        }).fail(function(){
+            alert("error");
+        });
+    });
+
+
+
 });
