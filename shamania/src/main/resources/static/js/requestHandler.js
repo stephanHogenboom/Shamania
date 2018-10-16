@@ -1,9 +1,7 @@
 $(document).ready(function(){
     $('#start-button').on('click', function(){
         $.post("/shaman/new/test").done(function(){
-            $.post("/battle/start", {
-                name: "ShackleBoiiii"
-            }).done(function(value){
+            $.post("/battle/start/shackleboiii").done(function(value){
                 console.dir(value);
                 //$('#centre-panel').html(value);
             }).fail(function(){
