@@ -2,29 +2,31 @@ package com.hogenbros.shamania.controller.rest;
 
 import com.hogenbros.shamania.acces.ShamanRepository;
 import com.hogenbros.shamania.model.Shaman;
-import com.hogenbros.shamania.service.model.Hero;
-import com.hogenbros.shamania.service.model.Role;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class ShamanController {
+    Logger logger = LoggerFactory.getLogger(ShamanController.class);
 
     @Autowired
     ShamanRepository shamanRepository;
 
-    @PostMapping("/shaman/new/{fullName")
+    @PostMapping("/shaman/new/{fullName}")
     @CrossOrigin
-    public void newShaman(@RequestParam String name, HttpServletResponse response) {
+    public void newShaman(@PathVariable String fullName, HttpServletResponse response) {
+        logger.info("shackle");
         Shaman shaman = new Shaman();
-        shaman.setFullName(name);
+        shaman.setFullName(fullName);
         shamanRepository.save(shaman);
-        Hero hero = new Hero(name, 100, 10,  10, Role.Conjurer);
+        response.setStatus(200);
     }
 
 }
