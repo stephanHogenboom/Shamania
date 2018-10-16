@@ -12,6 +12,15 @@ public class Person {
     @Column(name = "first_name")
     private String name;
 
+    @Column(name = "strength")
+    public int strenght;
+
+    @Column(name = "intelligence")
+    public int intelligence;
+
+    @Transient
+    public int currentHP;
+
     public Long getId() {
         return id;
     }
