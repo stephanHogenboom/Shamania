@@ -1,4 +1,4 @@
-package com.hogenbros.shamania.service;
+package com.hogenbros.shamania.service.model;
 
 public enum Role {
     Warrior,
