@@ -20,7 +20,7 @@ public class BattleWebController {
     public String startBattle(@RequestParam("name") String name, Model model) {
         Shaman shaman = shamanRepository.findShamanByFullName(name);
         Hero hero = new Hero(shaman.getFullName(), 100, 10, 10, Role.Conjurer);
-        model.addAttribute("shaman", shaman);
+        model.addAttribute("hero", hero);
         return "battle_menu";
     }
 }
