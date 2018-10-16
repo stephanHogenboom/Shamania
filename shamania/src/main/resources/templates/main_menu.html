@@ -3,14 +3,35 @@
 <head>
     <title>Shamania</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/main-menu.css}"/>
+    <script th:src="@{/js/requestHandler.js}"></script>
 </head>
 <body>
     <div id="main-panel">
-        <div id="centre-panel">
-            <h1 id="main-title">Shamania</h1>
-            <span id="main-welcome-text">Welcome to Shamania</span>
-            <a id="main-button-href" href="/start"><button id="main-button">Start</button></a>
+        <div id="top-panel">
+            <div id="centre-panel">
+                <h1 id="main-title">Shamania</h1>
+                <span id="main-welcome-text">Welcome to Shamania</span>
+                <a id="main-button-href" href="/start"><button id="main-button">Start</button></a>
+            </div>
         </div>
+        <div id="bottom-panel">
+            <div id="player-stats-panel">
+                <div id="player-box" class="bottom-border-panels">
+
+                </div>
+            </div>
+            <div id="option-panel">
+                <div id="option-box" class="bottom-border-panels">
+
+                </div>
+            </div>
+            <div id="enemy-stats-panel">
+                <div id="enemy-box" class="bottom-border-panels">
+
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
