@@ -4,14 +4,17 @@ public class ActiveCharacter extends Person{
 
     private int currentHp;
     private int Strength;
-    private Role role;
+    private int intelligence;
 
-    public ActiveCharacter(String name, int currentHp, int strength, Role role) {
+    public ActiveCharacter(String name, int currentHp, int strength, int intelligence, Role role) {
         super(name);
         this.currentHp = currentHp;
         Strength = strength;
+        this.intelligence = intelligence;
         this.role = role;
     }
+
+    private Role role;
 
     public ActiveCharacter() {
         super("Unknown");
@@ -39,5 +42,13 @@ public class ActiveCharacter extends Person{
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public int getIntelligence() {
+        return intelligence;
+    }
+
+    public void setIntelligence(int intelligence) {
+        this.intelligence = intelligence;
     }
 }
