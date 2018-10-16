@@ -1,4 +1,8 @@
-<div id="battle-menu" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div id="battle-menu">
     <h1>Test ajax call</h1>
-    <h2><span th:text="${hero.getFullName()}"></span></h2>
+    <th:block>
+        <h2><span th:text="${hero.getFullName()}"></span></h2>
+    </th:block>
+
 </div>
