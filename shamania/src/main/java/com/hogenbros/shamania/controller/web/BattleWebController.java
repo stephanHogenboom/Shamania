@@ -7,8 +7,8 @@ import com.hogenbros.shamania.service.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class BattleWebController {
@@ -17,7 +17,7 @@ public class BattleWebController {
     ShamanRepository shamanRepository;
 
     @RequestMapping("/battle/start/{name}")
-    public String startBattle(@RequestParam("name") String name, Model model) {
+    public String startBattle(@PathVariable("name") String name, Model model) {
         Shaman shaman = shamanRepository.findShamanByFullName(name);
         Hero hero = new Hero(shaman.getFullName(), 100, 10, 10, Role.Conjurer);
         model.addAttribute("hero", hero);

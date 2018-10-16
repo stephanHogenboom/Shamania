@@ -27,6 +27,7 @@ public class ShamanController {
         shaman.setFullName(fullName);
         shamanRepository.save(shaman);
         response.setStatus(200);
+        logger.info("shackling done");
     }
 
 }
