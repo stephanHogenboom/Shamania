@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static com.hogenbros.shamania.service.GameMechanics.shamanToHero;
+
 /**
  * @author Stephan Hogenboom
  * Simple RestController that is used to create and update shaman entities
@@ -30,7 +32,7 @@ public class ShamanController {
     private static final int START_STRENGTH = 10;
     private static final int START_INTELLIGENCE = 10;
     private static final ObjectMapper MAPPER = new ObjectMapper();
-    private static final Role STARTING_ROLE = Role.Conjurer;
+    private static final Role STARTING_ROLE = Role.Shaman;
 
     @Autowired
     ShamanRepository shamanRepository;
@@ -42,14 +44,9 @@ public class ShamanController {
             throw new IllegalStateException("FullName should not be empty!");
         }
         LOG.info("creating new shaman with name= %s", fullName);
-        Shaman shaman = new Shaman(fullName, START_LEVEL, START_STRENGTH, START_INTELLIGENCE);
+        Shaman shaman = new Shaman(fullName, START_LEVEL, START_STRENGTH, START_INTELLIGENCE, STARTING_ROLE);
         shamanRepository.save(shaman);
-        Hero hero = new Hero(
-                shaman.getFullName(),
-                GameMechanics.calculateMaxHealth(shaman),
-                shaman.getStrenght(),
-                shaman.getIntelligence(),
-                STARTING_ROLE);
+        Hero hero = shamanToHero(shaman);
         try {
             String heroAsJson = MAPPER.writeValueAsString(hero);
             response.setHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE);

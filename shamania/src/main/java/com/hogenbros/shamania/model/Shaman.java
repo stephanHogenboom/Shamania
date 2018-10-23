@@ -1,5 +1,7 @@
 package com.hogenbros.shamania.model;
 
+import com.hogenbros.shamania.service.model.Role;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,14 +20,18 @@ public class Shaman {
     @Column
     private int strenght;
 
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
     @Column
     private int intelligence;
 
-    public Shaman(String name, int lvl, int strenght, int intelligence) {
+    public Shaman(String name, int lvl, int strenght, int intelligence, Role role) {
         this.level = lvl;
         this.strenght = strenght;
         this.intelligence = intelligence;
         this.fullName = name;
+        this.role = role;
     }
 
     @OneToMany(
@@ -53,5 +59,9 @@ public class Shaman {
 
     public List<Skill> getSkillList() {
         return skillList;
+    }
+
+    public Role getRole() {
+        return role;
     }
 }

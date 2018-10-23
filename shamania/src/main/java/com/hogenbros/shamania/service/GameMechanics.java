@@ -1,18 +1,27 @@
 package com.hogenbros.shamania.service;
 
 import com.hogenbros.shamania.model.Shaman;
+import com.hogenbros.shamania.service.model.Hero;
 
 public class GameMechanics {
     private static final int BASE_HEALTH = 100;
-    private static final int HEALTH_PER_STRENGHT = 25;
+    private static final int HEALTH_PER_STRENGTH = 25;
     private static final int HEALTH_PER_LEVEL = 10;
-
-
 
 
     public static int calculateMaxHealth(Shaman shaman) {
         assertAllValuesArePositive(shaman);
-        return  Math.abs(BASE_HEALTH + HEALTH_PER_LEVEL * shaman.getLevel() + shaman.getStrenght() * HEALTH_PER_STRENGHT);
+        return  Math.abs(BASE_HEALTH + HEALTH_PER_LEVEL * shaman.getLevel() + shaman.getStrenght() * HEALTH_PER_STRENGTH);
+    }
+
+    public static Hero shamanToHero(Shaman shaman) {
+        return new Hero(
+                shaman.getFullName(),
+                GameMechanics.calculateMaxHealth(shaman),
+                shaman.getLevel(),
+                shaman.getStrenght(),
+                shaman.getIntelligence(),
+                shaman.getRole());
     }
 
     private static void assertAllValuesArePositive(Shaman shaman) {
