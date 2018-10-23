@@ -2,7 +2,6 @@ package com.hogenbros.shamania.controller.rest;
 
 import com.hogenbros.shamania.acces.ShamanRepository;
 import com.hogenbros.shamania.model.Shaman;
-import com.hogenbros.shamania.service.GameMechanics;
 import com.hogenbros.shamania.service.model.Hero;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +26,7 @@ public class BattleController {
         Hero hero = new Hero(shaman.getFullName(),
                 shaman.getLevel(),
                 calculateMaxHealth(shaman),
-                shaman.getStrenght(),
+                shaman.getStrength(),
                 shaman.getIntelligence(),
                 shaman.getRole()
         );

@@ -43,8 +43,9 @@ public class ShamanController {
         if (fullName == null || fullName.trim().isEmpty()) {
             throw new IllegalStateException("FullName should not be empty!");
         }
-        LOG.info("creating new shaman with name= %s", fullName);
+        LOG.info("creating new shaman with name = {}", fullName);
         Shaman shaman = new Shaman(fullName, START_LEVEL, START_STRENGTH, START_INTELLIGENCE, STARTING_ROLE);
+        LOG.info(shaman.toString());
         shamanRepository.save(shaman);
         Hero hero = shamanToHero(shaman);
         try {

@@ -15,20 +15,25 @@ public class Shaman {
     private String fullName;
 
     @Column(name = "level")
-    private int level;
+    private Integer level;
 
     @Column
-    private int strenght;
+    private Integer strength;
 
     @Enumerated(EnumType.STRING)
     private Role role;
 
     @Column
-    private int intelligence;
+    private Integer intelligence;
 
-    public Shaman(String name, int lvl, int strenght, int intelligence, Role role) {
+    // default constructor used by frameworks as Jackson and Hibernate;
+    public Shaman() {
+
+    }
+
+    public Shaman(String name, int lvl, int strength, int intelligence, Role role) {
         this.level = lvl;
-        this.strenght = strenght;
+        this.strength = strength;
         this.intelligence = intelligence;
         this.fullName = name;
         this.role = role;
@@ -49,8 +54,8 @@ public class Shaman {
         return level;
     }
 
-    public int getStrenght() {
-        return strenght;
+    public int getStrength() {
+        return strength;
     }
 
     public int getIntelligence() {
@@ -63,5 +68,16 @@ public class Shaman {
 
     public Role getRole() {
         return role;
+    }
+
+    @Override
+    public String toString() {
+        return "Shaman{" +
+                "fullName='" + fullName + '\'' +
+                ", level=" + level +
+                ", strength=" + strength +
+                ", role=" + role +
+                ", intelligence=" + intelligence +
+                '}';
     }
 }

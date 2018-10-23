@@ -11,7 +11,7 @@ public class GameMechanics {
 
     public static int calculateMaxHealth(Shaman shaman) {
         assertAllValuesArePositive(shaman);
-        return  Math.abs(BASE_HEALTH + HEALTH_PER_LEVEL * shaman.getLevel() + shaman.getStrenght() * HEALTH_PER_STRENGTH);
+        return  Math.abs(BASE_HEALTH + HEALTH_PER_LEVEL * shaman.getLevel() + shaman.getStrength() * HEALTH_PER_STRENGTH);
     }
 
     public static Hero shamanToHero(Shaman shaman) {
@@ -19,13 +19,13 @@ public class GameMechanics {
                 shaman.getFullName(),
                 GameMechanics.calculateMaxHealth(shaman),
                 shaman.getLevel(),
-                shaman.getStrenght(),
+                shaman.getStrength(),
                 shaman.getIntelligence(),
                 shaman.getRole());
     }
 
     private static void assertAllValuesArePositive(Shaman shaman) {
-        if (shaman.getStrenght() < 0) {
+        if (shaman.getStrength() < 0) {
             throw new IllegalStateException("Strength cannot be lower than zero!");
         }
         if (shaman.getLevel() < 0) {
