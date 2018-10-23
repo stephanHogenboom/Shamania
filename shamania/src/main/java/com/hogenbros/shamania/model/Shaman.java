@@ -12,11 +12,21 @@ public class Shaman {
     @Column(name = "full_name", unique = true)
     private String fullName;
 
+    @Column(name = "level")
+    private int level;
+
     @Column
     private int strenght;
 
     @Column
     private int intelligence;
+
+    public Shaman(String name, int lvl, int strenght, int intelligence) {
+        this.level = lvl;
+        this.strenght = strenght;
+        this.intelligence = intelligence;
+        this.fullName = name;
+    }
 
     @OneToMany(
             mappedBy="owner",
@@ -29,7 +39,19 @@ public class Shaman {
         return fullName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public int getLevel() {
+        return level;
+    }
+
+    public int getStrenght() {
+        return strenght;
+    }
+
+    public int getIntelligence() {
+        return intelligence;
+    }
+
+    public List<Skill> getSkillList() {
+        return skillList;
     }
 }
