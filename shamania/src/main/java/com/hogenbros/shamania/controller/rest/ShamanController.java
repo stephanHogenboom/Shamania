@@ -46,7 +46,7 @@ public class ShamanController {
         shamanRepository.save(shaman);
         Hero hero = new Hero(
                 shaman.getFullName(),
-                GameMechanics.caculateMaxHealth(shaman),
+                GameMechanics.calculateMaxHealth(shaman),
                 shaman.getStrenght(),
                 shaman.getIntelligence(),
                 STARTING_ROLE);
